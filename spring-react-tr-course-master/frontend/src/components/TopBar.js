@@ -18,7 +18,7 @@ const TopBar = props => {
 
   const menuArea = useRef(null);
 
-  const [menuVisible, setMenuVisible] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(true);
 
   useEffect(() => {
     document.addEventListener('click', menuClickTracker);
@@ -41,8 +41,6 @@ const TopBar = props => {
 
   let links = (
     <ul className="navbar-nav ml-auto">
-
-
       <li>
         <Link className="nav-link" to="/aboutus">
           {t('About Us')}
@@ -78,6 +76,22 @@ const TopBar = props => {
 
     links = (
       <ul className="navbar-nav ml-auto" ref={menuArea}>
+
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/aboutus">
+            {t('About Us')}
+          </Link>
+        </li>
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/connection">
+            {t('Connection')}
+          </Link>
+        </li>
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/users">
+            {t('Users')}
+          </Link>
+        </li>
         <li className="nav-item dropdown">
           <div className="d-flex" style={{ cursor: 'pointer' }} onClick={() => setMenuVisible(true)}>
             <ProfileImageWithDefault image={image} width="32" height="32" className="rounded-circle m-auto" />
@@ -94,7 +108,7 @@ const TopBar = props => {
             </span>
           </div>
         </li>
-      </ul>
+      </ul >
     );
   }
 
@@ -105,6 +119,8 @@ const TopBar = props => {
           <img src={logo} width="80" alt="Hoaxify Logo" />
           YOGA
         </Link>
+        {/* <ul className="navbar-nav ml-auto">
+          </ul> */}
         {links}
       </nav>
     </div>
