@@ -29,7 +29,7 @@ export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
   }
 };
 
-export const getUser = username => {
+export const getUser = username => {//axios ile kullanıcı bilgilerini al
   return axios.get(`/api/1.0/users/${username}`);
 };
 

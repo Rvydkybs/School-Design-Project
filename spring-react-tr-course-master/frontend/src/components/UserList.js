@@ -5,7 +5,7 @@ import UserListItem from './UserListItem';
 import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from './Spinner';
 
-const UserList = () => {
+const UserList = () => {//backend'den userlist'i al
   const [page, setPage] = useState({
     content: [],
     size: 3,
@@ -66,7 +66,7 @@ const UserList = () => {
     <div className="card">
       <h3 className="card-header text-center">{t('Users')}</h3>
       <div className="list-group-flush">
-        {users.map(user => (
+        {users.map(user => (//dizi içindeki objeyi değiştirmek için
           <UserListItem key={user.username} user={user} />
         ))}
       </div>
