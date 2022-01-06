@@ -9,6 +9,6 @@ import com.hoaxify.ws.user.User;
 
 public interface HoaxRepository extends JpaRepository<Hoax, Long>, JpaSpecificationExecutor<Hoax>{
 	
-	Page<Hoax> findByUser(User user, Pageable page);
+	Page<Hoax> findByUser(User user, Pageable page);//page tipinde hoax döner
 
 }

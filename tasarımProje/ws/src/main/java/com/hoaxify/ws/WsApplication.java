@@ -25,13 +25,13 @@ public class WsApplication {
 			try {
 				userService.getByUsername("user1");				
 			} catch (Exception e) {				
-				for(int i = 1; i<=5;i++) {
+				for(int i = 1; i<=10;i++) {
 					User user = new User();
 					user.setUsername("user"+i);
 					user.setDisplayName("display"+i);
 					user.setPassword("P4ssword");
 					userService.save(user);//kullanıcıları kaydettik
-					for(int j = 1;j<=10;j++) {
+					for(int j = 1;j<=10;j++) {//post oluşturma
 						HoaxSubmitVM hoax = new HoaxSubmitVM();
 						hoax.setContent("hoax (" +j + ") from user ("+i+")");
 						hoaxService.save(hoax, user);

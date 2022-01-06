@@ -56,7 +56,7 @@ public class HoaxService {
 	}
 
 	public Page<Hoax> getHoaxesOfUser(String username, Pageable page) {
-		User inDB = userService.getByUsername(username);
+		User inDB = userService.getByUsername(username);//hoaxController user'ın gerçekten olup olmadığını kontrol eder
 		return hoaxRepository.findByUser(inDB, page);
 	}
 

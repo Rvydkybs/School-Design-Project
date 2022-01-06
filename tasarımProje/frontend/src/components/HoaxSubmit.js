@@ -94,7 +94,7 @@ const HoaxSubmit = () => {
               <ButtonWithProgress
                 className="btn btn-primary"
                 onClick={onClickHoaxify}
-                text="Hoaxify"
+                text="Send"
                 pendingApiCall={pendingApiCall}
                 disabled={pendingApiCall || pendingFileUpload}
               />

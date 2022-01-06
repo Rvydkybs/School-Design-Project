@@ -37,7 +37,7 @@ const HoaxFeed = () => {
       const response = await getNewHoaxCount(firstHoaxId, username);
       setNewHoaxCount(response.data.count);
     };
-    let looper = setInterval(getCount, 5000);
+    let looper = setInterval(getCount, 5000);//belirli aralıklarla bu fonksiyon çalışsın
     return function cleanup() {
       clearInterval(looper);
     };
@@ -51,7 +51,7 @@ const HoaxFeed = () => {
           ...response.data,
           content: [...previousHoaxPage.content, ...response.data.content]
         }));
-      } catch (error) {}
+      } catch (error) { }
     };
     loadHoaxes();
   }, [username]);
@@ -83,7 +83,7 @@ const HoaxFeed = () => {
   const { content, last } = hoaxPage;
 
   if (content.length === 0) {
-    return <div className="alert alert-secondary text-center">{initialHoaxLoadProgress ? <Spinner /> : t('There are no hoaxes')}</div>;
+    return <div className="alert alert-secondary text-center">{initialHoaxLoadProgress ? <Spinner /> : t('There are no posts')}</div>;
   }
 
   return (
@@ -92,9 +92,9 @@ const HoaxFeed = () => {
         <div
           className="alert alert-secondary text-center mb-1"
           style={{ cursor: loadNewHoaxesProgress ? 'not-allowed' : 'pointer' }}
-          onClick={loadNewHoaxesProgress ? () => {} : loadNewHoaxes}
+          onClick={loadNewHoaxesProgress ? () => { } : loadNewHoaxes}
         >
-          {loadNewHoaxesProgress ? <Spinner /> : t('There are new hoaxes')}
+          {loadNewHoaxesProgress ? <Spinner /> : t('There are new posts')}
         </div>
       )}
       {content.map(hoax => {
@@ -104,9 +104,9 @@ const HoaxFeed = () => {
         <div
           className="alert alert-secondary text-center"
           style={{ cursor: loadOldHoaxesProgress ? 'not-allowed' : 'pointer' }}
-          onClick={loadOldHoaxesProgress ? () => {} : loadOldHoaxes}
+          onClick={loadOldHoaxesProgress ? () => { } : loadOldHoaxes}
         >
-          {loadOldHoaxesProgress ? <Spinner /> : t('Load old hoaxes')}
+          {loadOldHoaxesProgress ? <Spinner /> : t('Load old posts')}
         </div>
       )}
     </div>

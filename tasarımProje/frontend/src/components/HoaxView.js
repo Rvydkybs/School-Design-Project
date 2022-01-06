@@ -64,19 +64,19 @@ const HoaxView = props => {
       </div>
       <Modal
         visible={modalVisible}
-        title={t('Delete Hoax')}
+        title={t('Delete Post')}
         onClickCancel={onClickCancel}
         onClickOk={onClickDelete}
         message={
           <div>
             <div>
-              <strong>{t('Are you sure to delete hoax?')}</strong>
+              <strong>{t('Are you sure to delete post?')}</strong>
             </div>
             <span>{content}</span>
           </div>
         }
         pendingApiCall={pendingApiCall}
-        okButton={t('Delete Hoax')}
+        okButton={t('Delete post')}
       />
     </>
   );

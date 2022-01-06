@@ -47,13 +47,13 @@ public class HoaxController {
 		return hoaxService.getHoaxes(page).map(HoaxVM::new);
 	}
 	
-	@GetMapping({"/hoaxes/{id:[0-9]+}", "/users/{username}/hoaxes/{id:[0-9]+}"})  
+	@GetMapping({"/hoaxes/{id:[0-9]+}", "/users/{username}/hoaxes/{id:[0-9]+}"})
 	ResponseEntity<?> getHoaxesRelative(@PageableDefault(sort = "id", direction = Direction.DESC) Pageable page,
 			@PathVariable long id,
 			@PathVariable(required=false) String username,
 			@RequestParam(name="count", required = false, defaultValue = "false") boolean count,
 			@RequestParam(name="direction", defaultValue = "before") String direction){
-		if(count) {
+		if(count) {//oluşturulan yeni postları saymak için
 			long newHoaxCount = hoaxService.getNewHoaxesCount(id, username);
 			Map<String, Long> response = new HashMap<>();
 			response.put("count", newHoaxCount);
@@ -68,7 +68,7 @@ public class HoaxController {
 		return ResponseEntity.ok(hoaxService.getOldHoaxes(id, username, page).map(HoaxVM::new));
 	}
 	
-	@GetMapping("/users/{username}/hoaxes") 
+	@GetMapping("/users/{username}/hoaxes") //parametre olarak verdiğim hoax'un user'ını getir
 	Page<HoaxVM> getUserHoaxes(@PathVariable String username, @PageableDefault(sort = "id", direction = Direction.DESC) Pageable page){
 		return hoaxService.getHoaxesOfUser(username, page).map(HoaxVM::new);
 	}
@@ -77,7 +77,7 @@ public class HoaxController {
 	@PreAuthorize("@hoaxSecurity.isAllowedToDelete(#id, principal)")
 	GenericResponse deleteHoax(@PathVariable long id) {
 		hoaxService.delete(id);
-		return new GenericResponse("Hoax removed");
+		return new GenericResponse("Post removed");
 	}
 
 }
