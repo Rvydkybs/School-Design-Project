@@ -13,7 +13,10 @@ import AboutUs from '../pages/AboutUs';
 import karma from '../pages/karma';
 import bhakti from '../pages/bhakti';
 import hatha from '../pages/hatha';
-
+import advices from '../pages/advices';
+import yasam from '../pages/yasam';
+import meditasyon from '../pages/meditasyon';
+import books from '../pages/books';
 
 const App = () => {
   const { isLoggedIn } = useSelector(store => ({
@@ -35,6 +38,10 @@ const App = () => {
           <Route path="/karma" component={karma} />
           <Route path="/bhakti" component={bhakti} />
           <Route path="/hatha" component={hatha} />
+          <Route path="/advices" component={advices} />
+          <Route path="/yasam" component={yasam} />
+          <Route path="/meditasyon" component={meditasyon} />
+          <Route path="/books" component={books} />
           <Redirect to="/" />
         </Switch>
       </Router>

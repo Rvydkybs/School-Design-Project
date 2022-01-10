@@ -49,7 +49,7 @@ const HoaxSubmit = () => {
     }
   };
 
-  const onChangeFile = event => {
+  const onChangeFile = event => {//dosya yükleme
     if (event.target.files.length < 1) {
       return;
     }
@@ -62,14 +62,14 @@ const HoaxSubmit = () => {
     fileReader.readAsDataURL(file);
   };
 
-  const uploadFile = async file => {
+  const uploadFile = async file => {//dosya güncelleme
     const attachment = new FormData();
     attachment.append('file', file);
     const response = await postHoaxAttachment(attachment);
     setAttachmentId(response.data.id);
   };
 
-  let textAreaClass = 'form-control';
+  let textAreaClass = 'form-control';//text control
   if (errors.content) {
     textAreaClass += ' is-invalid';
   }

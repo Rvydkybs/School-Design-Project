@@ -42,6 +42,26 @@ const TopBar = props => {
   let links = (
     <ul className="navbar-nav ml-auto">
       <li>
+        <Link className="nav-link" to="/advices">
+          {t('Advices')}
+        </Link>
+      </li>
+      <li>
+        <Link className="nav-link" to="/yasam">
+          {t('Yaşam')}
+        </Link>
+      </li>
+      <li>
+        <Link className="nav-link" to="/meditasyon">
+          {t('Meditasyon')}
+        </Link>
+      </li>
+      <li>
+        <Link className="nav-link" to="/books">
+          {t('Books')}
+        </Link>
+      </li>
+      <li>
         <Link className="nav-link" to="/aboutus">
           {t('About Us')}
         </Link>
@@ -77,6 +97,26 @@ const TopBar = props => {
     links = (
       <ul className="navbar-nav ml-auto" ref={menuArea}>
 
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/advices">
+            {t('Advices')}
+          </Link>
+        </li>
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/yasam">
+            {t('Yaşam')}
+          </Link>
+        </li>
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/meditasyon">
+            {t('Meditasyon')}
+          </Link>
+        </li>
+        <li className="navbar-nav ml-auto">
+          <Link className="nav-link" to="/books">
+            {t('Books')}
+          </Link>
+        </li>
         <li className="navbar-nav ml-auto">
           <Link className="nav-link" to="/aboutus">
             {t('About Us')}
